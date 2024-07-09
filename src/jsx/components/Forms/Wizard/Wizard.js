@@ -17,7 +17,7 @@ const Wizard = () => {
 	const handleStepOneSubmit = async (data) => {
 		console.log(data);
 		try {
-		  const response = await axios.post('http://127.0.0.1:8000/api/classes/', data);
+		  const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/classes/`, data);
 		  console.log(response);
 			
 		  swal("Success!", "Data Saved Successfully!", "success");
@@ -34,7 +34,7 @@ const Wizard = () => {
 		console.log(data);
 		
 		try {
-		  const response = await axios.post('http://127.0.0.1:8000/api/subjects/', data);
+		  const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/`, data);
 
 		  console.log(response);
 			
@@ -52,7 +52,7 @@ const Wizard = () => {
 		console.log(data);
 		
 		try {
-		  const response = await axios.post('http://127.0.0.1:8000/api/teachers/', data);
+		  const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/teachers/`, data);
 		  console.log(response);
 			
 		  swal("Success!", "Data Saved Successfully!", "success");
@@ -68,7 +68,7 @@ const Wizard = () => {
 	  const handleStepFourSubmit = async (data) => {
 		console.log("four",data);
 		try {
-		  const response = await axios.post('http://127.0.0.1:8000/api/divisions/', data);
+		  const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/divisions/`, data);
 		  console.log(response);
 			
 		  swal("Success!", "Data Saved Successfully!", "success");
@@ -85,7 +85,7 @@ const Wizard = () => {
 		console.log(data);
 
 		try {
-		  const response = await axios.post('http://127.0.0.1:8000/api/schedule/', data);
+		  const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/schedule/`, data);
 		  console.log(response);
 			
 		  swal("Success!", "Data Saved Successfully!", "success");

@@ -29,7 +29,7 @@ const StepTwo = ({ onNextClick }) => {
 
   const fetchExistingData = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/display-subjects/', { username: userDetails.username });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/display-subjects/`, { username: userDetails.username });
       const data = response.data;
       console.log(data);
       setRows(data); 

@@ -7,10 +7,10 @@ import { loadingToggleAction,loginAction,
 // image
 
 function Login (props) {
-  const [email, setEmail] = useState('demo@example.con');
+  const [email, setEmail] = useState('meetgoti07@gmail.com');
     let errorsObj = { email: '', password: '' };
     const [errors, setErrors] = useState(errorsObj);
-    const [password, setPassword] = useState('123456');
+    const [password, setPassword] = useState('12345');
 	const navigate = useNavigate();
     const dispatch = useDispatch();
 

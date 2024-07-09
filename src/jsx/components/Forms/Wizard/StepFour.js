@@ -75,7 +75,7 @@ const StepFour = ({ onNextClick }) => {
 
   const fetchDivisionData = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/display-divisions/', { username: userDetails.username });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/display-divisions/`, { username: userDetails.username });
       if (response.data) {
         const transformedData = response.data.map(division => ({
           divisionName: division.divisionname,

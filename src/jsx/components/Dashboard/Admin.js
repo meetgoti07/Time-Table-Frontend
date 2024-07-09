@@ -3,6 +3,8 @@ import { ThemeContext } from "../../../context/ThemeContext";
 import { Card, Table } from "react-bootstrap";
 import axios from "axios";
 
+
+
 const Admin = () => {
   const { changeBackground } = useContext(ThemeContext);
   const [starttimeSlots, setStartTimeSlots] = useState([]);
@@ -10,7 +12,6 @@ const Admin = () => {
   const [daysData, setDaysData] = useState([]);
 
   const [userDetails, setUserDetails] = useState({});
-  const [sessionData, setSessionData] = useState([]);
 
   const [divisions, setDivisions] = useState(new Set());
   const [divisionData, setDivisionData] = useState({});
@@ -35,7 +36,8 @@ const Admin = () => {
 
   const fetchDivisionData = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/generate-timetable/', { username: userDetails.username });
+      console.log(process.env.REACT_APP_BACKEND_URL);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/generate-timetable/`, { username: userDetails.username });
       const data = response.data;
       console.log('Division data:', data);
 
@@ -66,7 +68,7 @@ const Admin = () => {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/display-timetable/', { username: userDetails.username });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/display-timetable/`, { username: userDetails.username });
       console.log('Time slots response:', response.data);
       setStartTimeSlots(response.data[0].start_times);
       setEndTimeSlots(response.data[0].end_times);

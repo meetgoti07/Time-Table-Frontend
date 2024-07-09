@@ -15,7 +15,7 @@ export function signUp(firstname, lastname, username, email, password) {
         password,
     };
     return axios.post(
-        `http://127.0.0.1:8000/api/user-registration/`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/user-registration/`,
         postData,
     );
 }
@@ -26,7 +26,7 @@ export function login(email, password) {
         password,
     };
     return axios.post(
-        `http://127.0.0.1:8000/api/user-login/`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/user-login/`,
         postData,
     );
 }

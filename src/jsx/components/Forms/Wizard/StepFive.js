@@ -28,7 +28,8 @@ const StepFive = ({ onNextClick }) => {
 
   const fetchScheduleData = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/display-schedule/', { username: userDetails.username });
+      console.log(process.env.REACT_APP_BACKEND_URL)
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/display-schedule/`, { username: userDetails.username });
       if (response.data && response.data.length > 0) {
         const scheduleData = response.data[0];
   
